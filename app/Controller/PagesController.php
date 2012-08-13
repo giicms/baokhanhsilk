@@ -80,4 +80,9 @@ class PagesController extends AppController {
 		
 	}
 	
+	public function admin_index() {
+		$this->layout = "admin_layout";
+
+	}
+	
 }
