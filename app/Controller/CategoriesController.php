@@ -94,7 +94,12 @@ class CategoriesController extends AppController {
 		
 		
 		
-		
+		// admin
+		function admin_index() {
+			$this->layout = "admin_layout";
+			$Categorylist = $this->Category->generateTreeList(null,null,null," - ");
+		 	$this->set(compact('Categorylist'));
+		 }
 		
 		
 		

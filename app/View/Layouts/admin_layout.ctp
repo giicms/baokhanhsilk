@@ -31,7 +31,7 @@
 	<script type="text/javascript">
 		jQuery(function($){
 			$('ul.mainnav li').click(function(event){
-				event.preventDefault();
+				//event.preventDefault();
 				$('ul.mainnav li').removeClass('active');
 				$(this).addClass('active');     
 			});
@@ -101,10 +101,18 @@
 							</li>
 							
 							<li class="active">					
-								<a href="#" class="dropdown-toggle">
+								
+								<a href="/baokhanhsilk/admin/Categories/index" class="dropdown-toggle">
 									<i class="icon-category-menu"></i>
 									<span>Categories</span>
 								</a>	  				
+							</li>
+	
+								<li>					
+								<a href="#">
+									<i class="icon-user-menu"></i>
+									<span>Galleries</span>
+								</a>  									
 							</li>
 							
 							<li>					
