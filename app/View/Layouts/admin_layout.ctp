@@ -109,7 +109,7 @@
 							</li>
 	
 								<li>					
-								<a href="#">
+								<a href="/baokhanhsilk/admin/Images/add">
 									<i class="icon-user-menu"></i>
 									<span>Galleries</span>
 								</a>  									
