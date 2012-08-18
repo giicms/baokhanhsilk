@@ -100,6 +100,13 @@
 								</a>	    				
 							</li>
 							
+							<li>					
+								<a href="#" class="dropdown-toggle">
+									<i class="icon-collect-menu"></i>
+									<span>Collection</span>
+								</a>	  				
+							</li>
+							
 							<li class="active">					
 								<a href="#" class="dropdown-toggle">
 									<i class="icon-category-menu"></i>

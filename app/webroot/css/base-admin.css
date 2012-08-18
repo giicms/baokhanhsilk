@@ -588,7 +588,7 @@ textarea {
 }
 
 /*sydo add*/
-.icon-user-menu, .icon-category-menu{
+.icon-user-menu, .icon-category-menu, .icon-fabric-menu, .icon-design-menu, .icon-report-menu, .icon-collect-menu{
 	width: 42px;
 	height: 24px;	
 }
@@ -606,4 +606,7 @@ textarea {
 }
 .icon-report-menu{
 	background: url(../img/report-icon.png) no-repeat 0 0;
+}
+.icon-collect-menu{
+	background: url(../img/collection-icon.png) no-repeat 0 0;
 }
