@@ -101,7 +101,7 @@
 							</li>
 							
 							<li>					
-								<a href="#" class="dropdown-toggle">
+								<a href="/baokhanhsilk/admin/Collections/index" class="dropdown-toggle">
 									<i class="icon-collect-menu"></i>
 									<span>Collection</span>
 								</a>	  				

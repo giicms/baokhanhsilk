@@ -11,6 +11,8 @@ class Collection extends AppModel {
 			'message' => 'This field is required.'
 		)*/
 	);
+  public $actsAs = array('Tree');
+	public $hasMany = 'Design';
 }
 
 ?>
