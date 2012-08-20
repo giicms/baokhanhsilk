@@ -153,6 +153,7 @@
 			<div class="main">
 				<div class="main-inner">
 					<div class="container">
+						<?php echo $this->Session->flash(); ?>
 						<?php echo $content_for_layout; ?>
 					</div>
 				</div>

@@ -12,15 +12,12 @@ class CollectionsController extends AppController {
 		  * add new record for <i>Collections</i> table
 		  */
 		 function add() {
-		 	$this->layout = 'admin_layout';
+			$this->layout = 'admin_layout';	
 		 	$this->Collection->set($this->data);
-	
 			if (!empty($this -> data) && $this->Collection->validates()) {
 				$this->Collection->save($this -> data);
-				$this->Session->setFlash('A new collection has been added.');
+				$this->Session->setFlash("<div class='alert alert-success'>A new collection has been added.</div>");
 				$this->redirect(array('action' => 'index'));
-			}else {
-				echo "empty data";
 			}
 		}
 		
@@ -31,7 +28,7 @@ class CollectionsController extends AppController {
 				$this->data = $this->Collection->read();
 			}else{
 				if($this->Collection->save($this->data)){
-					$this->Session->setFlash('Your collection has been updated.');
+					$this->Session->setFlash("<div class='alert alert-success'>Your collection has been updated.</div>");
 					$this->redirect(array('action'=>'index'));	
 				}
 			}
@@ -40,7 +37,7 @@ class CollectionsController extends AppController {
 		function delete($id){
 			$this->layout = 'admin_layout';
 			if($this->Collection->delete($id)){
-				$this->Session->setFlash('The Collection with id = ' . $id . ' has been deleted.');
+				$this->Session->setFlash("<div class='alert alert-success'>The Collection with id = " . $id . " has been deleted.</div>");
 				$this->redirect(array('action' => 'index'));
 			}
 			
