@@ -5,6 +5,7 @@ class CollectionsController extends AppController {
 		function index() {
 			$collections = $this->Collection->find('all');
 		 	$this->set('collections', $collections);
+			$this->layout = 'admin_layout';
 		 }
 		 
 		 /**
