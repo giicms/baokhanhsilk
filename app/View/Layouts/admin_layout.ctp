@@ -150,7 +150,13 @@
 			</div> <!-- /subnavbar -->
 
 
-			<?php echo $content_for_layout; ?>
+			<div class="main">
+				<div class="main-inner">
+					<div class="container">
+						<?php echo $content_for_layout; ?>
+					</div>
+				</div>
+			</div>
 
 			
 
