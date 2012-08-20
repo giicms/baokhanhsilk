@@ -12,6 +12,7 @@ class CollectionsController extends AppController {
 		  * add new record for <i>Collections</i> table
 		  */
 		 function add() {
+		 	$this->layout = 'admin_layout';
 		 	$this->Collection->set($this->data);
 	
 			if (!empty($this -> data) && $this->Collection->validates()) {
@@ -24,6 +25,7 @@ class CollectionsController extends AppController {
 		}
 		
 		function edit($id = null){
+			$this->layout = 'admin_layout';
 			$this->Collection->id = $id;
 			if( empty($this->data) ) {
 				$this->data = $this->Collection->read();
@@ -36,6 +38,7 @@ class CollectionsController extends AppController {
 		}
 		
 		function delete($id){
+			$this->layout = 'admin_layout';
 			if($this->Collection->delete($id)){
 				$this->Session->setFlash('The Collection with id = ' . $id . ' has been deleted.');
 				$this->redirect(array('action' => 'index'));
