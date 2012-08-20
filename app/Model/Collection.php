@@ -4,12 +4,12 @@ class Collection extends AppModel {
 	public $name = 'Collection';
 	
 	var $validate = array(
-		/*'name' => array(
-			'required'   => true,
+		'name' => array(
+			'required' => true,
 			'allowEmpty' => false,
-			'on'         => 'create',
+			'rule' => array('minLength' => 255),
 			'message' => 'This field is required.'
-		)*/
+		)
 	);
   public $actsAs = array('Tree');
 	public $hasMany = 'Design';

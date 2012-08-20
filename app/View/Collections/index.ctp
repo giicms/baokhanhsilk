@@ -5,7 +5,7 @@ echo $this->Html->link('Add new collection',array('action'=>'add'));
 
 if(!empty($collections)){
 ?>
-	<table class="table table-striped">
+	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>
 				<th>Id</th>
@@ -21,7 +21,7 @@ if(!empty($collections)){
 		    <td><?php echo $collect['Collection']['name']; ?></td>
 		    <td>
 		    	<?php
-		    		echo $this->Html->link('edit', array('action'=>'edit', $collect['Collection']['id'])); 
+		    		echo $this->Html->link('edit', array('action'=>'edit', $collect['Collection']['id'])) . "&nbsp;&nbsp;&nbsp;"; 
 		    		echo $this->Html->link(
 						'delete', 
 						array('action'=>'delete', $collect['Collection']['id']),
@@ -36,6 +36,7 @@ if(!empty($collections)){
 	 </table>
 	 
 <?php
+	echo $this->Html->link('Add new collection',array('action'=>'add'));
 }else{
 	echo("<div class='alert alert-info'>No record(s) was found.</div>");
 } 
