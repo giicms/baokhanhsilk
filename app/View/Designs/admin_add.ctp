@@ -6,7 +6,7 @@
 	$Collectionlist = $collectionModel->generateTreeList(null, null, null, " - ");
 	pr($Collectionlist);
 ?>
-	<select id="DesignCollectionId" class = "">
+	<select id="DesignCollectionId" class = "" name="collectionId">
 		<?php foreach ($Collectionlist as $key => $value) { ?>
 			<option value="<?=$key; ?>"><?=$value; ?></option>
 		<?php } ?>
@@ -20,7 +20,7 @@
 		'class' => 'fileUpload', 
 	//	'multiple' => 'multiple'
 	));		
-	echo $this->Form->button('Upload', array('type' => 'submit', 'id' => 'px-submit'));
+	echo $this->Form->button('Add', array('type' => 'submit', 'id' => 'px-submit'));
 	echo $this->Form->button('Clear', array('type' => 'reset', 'id' => 'px-clear'));
 	echo $this->Form->end();
 ?>

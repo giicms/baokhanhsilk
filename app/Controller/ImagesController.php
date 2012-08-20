@@ -81,7 +81,7 @@ class ImagesController extends AppController {
 			ak_img_thumb($target_file, $thumbnail, $wthumb, $hthumb, $fileExt);
 			//----------------End thumbnail function -------------------
 			//----------------Start Adams Convert to JPG function ----------
-			if (strtolower($fileExt) |= "jpg") {
+			if (strtolower($fileExt) != "jpg") {
 				$target_file =  WWW_ROOT."uploads/resized_$fileName";
 				$new_jpg = $target_file =  WWW_ROOT."uploads/resized_".$kaboom[0].".jpg";
 				ak_img_convert_to_jpg($target_file, $new_jpg, $fileExt);
