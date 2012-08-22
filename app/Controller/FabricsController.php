@@ -4,6 +4,8 @@ class FabricsController extends AppController {
 
 		function index() {
 			$fabrics = $this->Fabric->find('all');
+			$this->Fabric->read(null, $fb['Fabric']['collection_id']);// get collection list
+			//pr($fabrics);
 		 	$this->set('fabrics', $fabrics);
 			$this->layout = 'admin_layout';
 		 }
@@ -22,6 +24,7 @@ class FabricsController extends AppController {
 		}
 		
 		function edit($id = null){
+			$this->Fabric->read(null, $id);
 			$this->layout = 'admin_layout';
 			$this->Fabric->id = $id;
 			if( empty($this->data) ) {
