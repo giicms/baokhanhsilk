@@ -2,8 +2,8 @@
 App::uses('AuthComponent', 'Controller/Component');
 class Collection extends AppModel {
 	public $name = 'Collection';
-	
-	var $hasMany = array('Fabric' => array('className' => 'Fabric'));
+	public $actsAs = array('Tree');
+	public $hasMany = array('Fabric' => array('className' => 'Fabric'), 'Design');
 	
 	var $validate = array(
 		'name' => array(
@@ -13,8 +13,8 @@ class Collection extends AppModel {
 			'message' => 'This field is required.'
 		)
 	);
-  public $actsAs = array('Tree');
-	public $hasMany = 'Design';
+  
+	
 }
 
 ?>

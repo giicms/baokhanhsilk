@@ -1,5 +1,5 @@
 <?php
-pr($fabrics);
+
 
 echo $this->Html->link('Back',array('action'=>'index'));
 

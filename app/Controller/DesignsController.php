@@ -30,10 +30,9 @@ class DesignsController extends AppController {
 	public function admin_add() {
 		$this->layout = "admin_layout";
 		$this->Session->setFlash('');
-		pr($this->data);
-		pr($_POST);
 		if ( !empty( $this->data ) ) {
 			$data = $this->data['Design'];
+			$collection_id = $this->data['collectionId'];
 			// Upload images
 			$fileName = $data['file']['name']; // the file name
 			$fileTmpLoc = $data['file']['tmp_name'];
@@ -108,7 +107,6 @@ class DesignsController extends AppController {
 			$image_id = $imageModel->id;
 			
 			// Luu xuong bang design
-			$collection_id = $$this->data['collectionId'];
 			$code = $data['code'];
 			$description = $data['description'];
 			$designData = array('Design' => array(
