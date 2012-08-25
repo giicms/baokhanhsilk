@@ -80,6 +80,13 @@ class PagesController extends AppController {
 		
 	}
 	
+	public function order_online() {
+		
+	}
+	
+	public function farbics() {
+		
+	}
 	public function admin_index() {
 		$this->layout = "admin_layout";
 

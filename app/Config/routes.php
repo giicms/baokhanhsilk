@@ -28,6 +28,8 @@
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
 	Router::connect('/aboutUs', array('controller' => 'pages', 'action' => 'aboutUs'));
 	Router::connect('/contactUs', array('controller' => 'pages', 'action' => 'contactUs'));
+	Router::connect('/order_online', array('controller' => 'pages', 'action' => 'order_online'));
+	Router::connect('/farbics', array('controller' => 'pages', 'action' => 'farbics'));
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */

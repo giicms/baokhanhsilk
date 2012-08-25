@@ -91,8 +91,8 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			          <ul class="nav">
 			            <li class="active"><a href="#"><i class="icon-home icon-white"></i>Home</a></li>
 			            <li><a href="#">Collections</a></li>
-			            <li><a href="#">Fabrics</a></li>
-			            <li><a href="#">How to Order Online</a></li>
+			            <li><a href="/baokhanhsilk/farbics">Fabrics</a></li>
+			            <li><a href="/baokhanhsilk/order_online">How to Order Online</a></li>
 			            <li><a href="/baokhanhsilk/contactUs">Contact Us</a></li>
 			            <li><a href="/baokhanhsilk/aboutUs">About Us</a></li>
 			          </ul>

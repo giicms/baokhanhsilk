@@ -4,7 +4,6 @@
 </div>
 
 <div class="row-fluid">
-	<!-- blank -->
 	<div class="span1"></div>
 	<div class="span10">
 		<p>
