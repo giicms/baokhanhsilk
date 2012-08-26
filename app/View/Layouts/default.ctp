@@ -57,16 +57,28 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				<div class="">
 					<div class="row-fluid">
 						<div class="span12 offset-right offset-top">
-							<form class="form-inline pull-right">
-							  <input type="text" class="input-small" placeholder="Email" style="width: 150px;margin-right:10px; height: 15px;">
-							  <input type="password" class="input-small" placeholder="Password" style="width: 150px;height: 15px;">
-							  <label class="checkbox">
-							    <input type="checkbox" ><span> Remember me </span>
-							  </label>
-							  <button type="submit" class="btn">Sign in</button>
-							</form>
-						</div>	
+							<ul class="nav nav-pills pull-right">
+							  <li><a href="#myLogin" data-toggle="modal">Log In</a></li>
+							  <li><a href="#myLogin" data-toggle="modal">Sign In</a></li>
+							</ul>
+						</div>
 					</div>
+					<!-- phan danh cho login va signin -->
+					<div id="myLogin" class="modal hide fade in">
+						<a class="close" data-dismiss="modal">&times;</a>
+    				<h1>Log in to Bao Khanh Silk</h1>
+    				
+    				<form action="/login" method="POST" autocomplete="off"><div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='9gx4miBul0Tu6VJJtYpB3vr5Sg7t0Y1W' /></div>
+			        <fieldset>
+			            <h5>or with Kippt account</h5>
+			            <input type="text" placeholder="Username or email" name="username" maxlength="30" id="id_username" />
+			            <input type="password" placeholder="Password" name="password" id="id_password" />
+			            <input type="submit" value="Log in" class="btn">
+			        </fieldset>
+			         <a href="/accounts/password/reset/"><span>Forgot password?</span></a> &middot; <a href="/signup/"><span>Sign up to Kippt</span></a>
+			     </form>
+    				
+					</div>					
 					<div class="row-fluid">
 						<div class="span4 offset-left">
 							<img src="images/bk-logo.png" alt="baokhanhsilk" />
