@@ -58,27 +58,42 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 					<div class="row-fluid">
 						<div class="span12 offset-right offset-top">
 							<ul class="nav nav-pills pull-right">
-							  <li><a href="#myLogin" data-toggle="modal">Log In</a></li>
-							  <li><a href="#myLogin" data-toggle="modal">Sign In</a></li>
+							  <li><a href="#login-modal" data-toggle="modal">Log In</a></li>
+							  <li><a href="#signup-modal" data-toggle="modal">Sign Up</a></li>
 							</ul>
 						</div>
 					</div>
 					<!-- phan danh cho login va signin -->
-					<div id="myLogin" class="modal hide fade in">
+					<div class="modal hide fade" id="login-modal" style="display: none; ">
 						<a class="close" data-dismiss="modal">&times;</a>
     				<h1>Log in to Bao Khanh Silk</h1>
     				
-    				<form action="/login" method="POST" autocomplete="off"><div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='9gx4miBul0Tu6VJJtYpB3vr5Sg7t0Y1W' /></div>
+    				<form action="/baokhanhsilk/Users/login" method="POST" autocomplete="off">
 			        <fieldset>
-			            <h5>or with Kippt account</h5>
 			            <input type="text" placeholder="Username or email" name="username" maxlength="30" id="id_username" />
 			            <input type="password" placeholder="Password" name="password" id="id_password" />
 			            <input type="submit" value="Log in" class="btn">
 			        </fieldset>
-			         <a href="/accounts/password/reset/"><span>Forgot password?</span></a> &middot; <a href="/signup/"><span>Sign up to Kippt</span></a>
+			         <a href="/accounts/password/reset/"><span>Forgot password?</span></a> &middot; <a href="/signup/"><span>Sign up to Baokhanh</span></a>
 			     </form>
-    				
+					</div>
+					<div class="modal hide fade" id="signup-modal">
+					    <a class="close" data-dismiss="modal">×</a>
+					    <h1>Sign up for Baokhanh Silk</h1>
+					    
+					
+					
+					      <form action="/baokhanhsilk/Users/signin" method="POST" autocomplete="off">
+					        <fieldset>
+					            <input type="text" placeholder="Username" name="username" maxlength="30" id="id_username">
+					            <input type="email" placeholder="Email" name="email" maxlength="75" id="id_email"><div class="email_suggestion"></div>
+					            <input type="password" placeholder="Password" name="password" id="id_password">
+					            <input type="submit" value="Sign Up" class="btn">
+					        </fieldset>
+					         <a href="/baokhanhsilk/Users/login/"><span>Already have an account?</span> Log in</a>
+					     </form>
 					</div>					
+					<!-- het phan danh cho login va signin -->					
 					<div class="row-fluid">
 						<div class="span4 offset-left">
 							<img src="images/bk-logo.png" alt="baokhanhsilk" />

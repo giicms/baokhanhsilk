@@ -95,13 +95,65 @@ class CategoriesController extends AppController {
 		
 		
 		// admin
-		function admin_index() {
+	function admin_index() {
+		$this->layout = "admin_layout";
+		$Categorylist = $this->Category->generateTreeList(null,null,null," - ");
+	 	$this->set(compact('Categorylist'));
+	 }
+		
+	function admin_add() {
 			$this->layout = "admin_layout";
-			$Categorylist = $this->Category->generateTreeList(null,null,null," - ");
-		 	$this->set(compact('Categorylist'));
-		 }
-		
-		
+			$this->Session->setFlash('');
+			if(!empty($this->data)) {
+				
+				$parent_id = $this->data['Category']['parent_id'];
+				//$parent = $this->Category->getById($parent_id, true);
+				$this->Category->save($this->data);
+				$this->redirect(array( 'action' => 'admin_index'));
+			} else {
+				$parents[0] = '[ Top ]';
+				$Categorylist = $this->Category->generateTreeList(null, null, null, " - ");
+				if($Categorylist) {
+					foreach ( $Categorylist as $key=>$value ){
+						$parents[$key] = $value;
+					}
+					$this->set(compact('parents'));
+				}
+			}
+	}
+	function admin_edit($id = null) {
+			$this->layout = 'admin_layout';
+			if ( !empty($this->data) ) {
+				pr($this->data);
+				if ( $this->Category->save($this->data) == false ){
+					$this->Session->setFlash('Can not edit Category');
+				} 
+				//$this->redirect(array('action' => 'admin_index'));	
+			} else {
+				if( $id == null ) die("No Id received");
+				$this->data = $this->Category->read(null, $id);
+				
+				$parents[0] = " [ Top ] ";
+				$Categorylist = $this->Category->generateTreeList(null, null, null, " - ");
+				if( $Categorylist ) {
+					foreach ( $Categorylist as $key => $value ) {
+						$parents[$key] = $value;
+					}
+					$this->set(compact('parents'));
+				}
+			}
+	}
+	
+	function admin_delete() {
+		$id = $_POST['id'];
+		$ten = $_POST['value'];
+		if($id==null)
+			die("No ID received");
+		$this->Category->id=$id;
+		if($this->Category->removeFromTree($id,true)==false)
+		$this->Session->setFlash('Không thể xóa danh mục.');
+		$this->Session->setFlash('Đã xóa danh mục '.$ten);
+	}
 		
 		
 		

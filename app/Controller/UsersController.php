@@ -1,12 +1,14 @@
 <?php
 class UsersController extends AppController {
-	public function beforeFilter() {
-		parent::beforeFilter();
-		$this->Auth->allow('*');
-	}
+	
 	public function login() {
+		pr("dkdkdkdk");
 		if($this->request->is('post')) {
+			pr('zyx');
+			pr($_POST);
 			if ($this->Auth->login()) {
+				pr($_POST);
+				pr("acde");
 				$this->redirect($this->Auth->redirect());
 				
 			} else {
@@ -17,6 +19,12 @@ class UsersController extends AppController {
 	
 	public function logout() {
 		// leave empty for now
+	}
+	
+	public function signin() {
+		if(!empty($this->data)) {
+			
+		}
 	}
 	
 
