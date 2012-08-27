@@ -2,7 +2,7 @@
 class FabricsController extends AppController {
     public $name = 'Fabrics';
 
-		function index() {
+		function admin_index() {
 			$fabrics = $this->Fabric->find('all');
 			$this->Fabric->read(null, $fb['Fabric']['collection_id']);// get collection list
 			//pr($fabrics);
@@ -23,7 +23,7 @@ class FabricsController extends AppController {
 			}
 		}
 		
-		function edit($id = null){
+		function admin_edit($id = null){
 			$this->Fabric->read(null, $id);
 			$this->layout = 'admin_layout';
 			$this->Fabric->id = $id;
@@ -37,7 +37,7 @@ class FabricsController extends AppController {
 			}
 		}
 		
-		function delete($id){
+		function admin_delete($id){
 			$this->layout = 'admin_layout';
 			if($this->Fabric->delete($id)){
 				$this->Session->setFlash("<div class='alert alert-success'>The fabric with id = " . $id . " has been deleted.</div>");

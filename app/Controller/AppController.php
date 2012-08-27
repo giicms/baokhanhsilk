@@ -46,11 +46,14 @@ class AppController extends Controller {
     public function beforeFilter() {
 		$this->Auth->allow('*');
         //Configure AuthComponent
-       /*
         $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
-               $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
-               $this->Auth->loginRedirect = array('controller' => 'posts', 'action' => 'add');*/
-       
+        $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
+        $this->Auth->loginRedirect = array('controller' => 'posts', 'action' => 'add');
+        
+        //set layout back-end, fonrt-end
+        if (strpos($this->action, 'admin_') !== false) {
+        	$this->layout = 'admin_layout';
+        }
     }	
 
 }

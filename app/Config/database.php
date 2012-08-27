@@ -64,8 +64,8 @@ class DATABASE_CONFIG {
 		'persistent' => false,
 		'host' => 'localhost',
 		'login' => 'root',
-		'password' => 'baokhanhdb',
-		'database' => 'baokhanhsilk',
+		'password' => '',
+		'database' => 'baokhanh',
 		'prefix' => '',
 		'encoding' => 'utf8',
 	);
