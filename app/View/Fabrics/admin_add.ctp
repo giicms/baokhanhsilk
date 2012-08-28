@@ -1,36 +1,49 @@
-<?php
-	App::import('model','Collection');
-	$collectionModel = new Collection();
-	$Collectionlist = $collectionModel->generateTreeList(null, null, null, "");
-	pr($Collectionlist);
+
+<div class="main">
 	
-	echo $this->Html->link('Back',array('action'=>'index'));
-	
-	echo $this->Form->create('Fabric', array('url'=>array('controller'=>'Fabrics', 'action'=>'add'), 'class'=>'well'));
-	echo $this->Form->input('code',array('label'=>'Fabric Code', 'div' => false, 'class' => 'span3', 'placeholder' => 'Type fabric code'));
-	echo $this->Form->input('description',array('label'=>'Description', 'div' => false, 'class' => 'span3', 'placeholder' => 'Type description'));
-	echo $this->Form->input('price',array('label'=>'Price', 'div' => false, 'class' => 'span3', 'placeholder' => 'price'));
-	
-	$options = array('0' => '--Select Collection--');
-	
-	foreach($Collectionlist as $key => $value){
-		$options[$key] = $value;
-	}
-	//pr($options);
+<div class="row-fluid">
+	<div class="span2">
 		
-	echo("</br>");
-	echo $this->Form->select('collection_id', $options, array('empty' => false, 'escape' => false, 'default'=>'0', 'label' => 'Select Collection', 'div'=>false, 'class' => 'span3'));
-	echo("</br>");
-	echo $this->Form->input('file', array(
-		'type' => 'file', 
-		'label' => false, 'div' => false,
-		'class' => 'fileUpload', 
-	//	'multiple' => 'multiple'
-	));	
-?>
-	<label/>
-<?php
-	echo $this->Form->button('Add', array('type' => 'submit', 'id' => 'px-submit', 'class' => 'btn'));
-	echo $this->Form->button('Clear', array('type' => 'reset', 'id' => 'px-clear', 'class' => 'btn'));
-	echo $this->Form->end();
-?>
+	</div>
+	<div class="span8">
+		<?php echo $this->Form->create('Fabric', array('type' => 'file')); ?>
+		<?php
+		App::import('model','Collection');
+		$collectionModel = new Collection();
+		$Collectionlist = $collectionModel->generateTreeList(null, null, null, " - ");
+		?>	
+			<legend>Add Fabric</legend>
+			<label>Code</label>
+			<input name="data[Fabric][code]" maxlength="20" type="text" id="FabricCode" class="required">
+			<label>Collection</label>
+			<select id="FabricCollectionId" class = "" name="collectionId">
+				<?php foreach ($Collectionlist as $key => $value) { ?>
+					<option value="<?=$key; ?>"><?=$value; ?></option>
+				<?php } ?>
+			</select>
+			<label>Description</label>
+			<textarea name="data[Fabric][description]" cols="30" rows="6" id="FabricDescription" class="required"></textarea>
+			<label for="FabricPrice">Price</label>
+			<input name="data[Fabric][price]" class="required" placeholder="price" step="any" type="number" id="FabricPrice">
+			<label>Image</label>
+			<input type="file" name="data[Fabric][file]" class="fileUpload {validate:{required:true,accept:true}} required" id="FabricFile" >
+			<button type="submit" id="px-submit" class="btn btn-primary">Add</button>
+			<button type="reset" id="px-clear" class="btn">Clear</button>
+		<?php echo $this->Form->end(); ?>
+	</div>
+	<div class="span2"></div>
+</div>
+
+	
+</div> 
+
+
+<div class="row-fluid">
+	<!-- blank -->
+	<div class="span12"></div>
+</div>
+<script type="text/javascript">
+	$().ready(function() {
+		$('#FabricAdminAddForm').validate();
+	});
+</script>

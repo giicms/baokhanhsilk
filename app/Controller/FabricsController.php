@@ -4,7 +4,7 @@ class FabricsController extends AppController {
 
 		function admin_index() {
 			$fabrics = $this->Fabric->find('all');
-			$this->Fabric->read(null, $fb['Fabric']['collection_id']);// get collection list
+			//$this->Fabric->read(null, $fb['Fabric']['collection_id']);// get collection list
 		 	$this->set('fabrics', $fabrics);
 		 }
 		 
@@ -133,6 +133,7 @@ class FabricsController extends AppController {
 			);
 			// luu
 			$this->Fabric->save($fabricData);
+			$this->redirect(array('action' => 'index'));
 		} else {
 			// lam cai chi o day sau
 		}

@@ -5,18 +5,21 @@ class Fabric extends AppModel {
 	
 	var $belongsTo = array('Collection' => array('className' => 'Collection'));
 	
+	/* Tam thoi comment validate lai
+	 * tuan sau xu ly no 
 	var $validate = array(
-		'code' => array(
-			'required' => true,
-			'allowEmpty' => false,
-			'rule' => array('minLength' => 255),
-			'message' => 'This field is required.'
-		),
-		'price' => array(
-			'rule' => '/^[0-9]*\\.?[0-9]+$/',
-			'message' => 'This must be a positive decimal number'  
-		)
-	);
+			'code' => array(
+				'required' => true,
+				'allowEmpty' => false,
+				'rule' => array('minLength' => 255),
+				'message' => 'This field is required.'
+			),
+			'price' => array(
+				'rule' => '/^[0-9]*\\.?[0-9]+$/',
+				'message' => 'This must be a positive decimal number'  
+			)
+		);*/
+	
 }
 
 ?>
