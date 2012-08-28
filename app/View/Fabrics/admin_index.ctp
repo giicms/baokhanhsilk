@@ -17,11 +17,7 @@ if(!empty($fabrics)){
 		</thead>
 		
 		<tbody>
-		<?php foreach ($fabrics as $fb): 
-			$collectId = $fb['Fabric']['collection_id'];
-			//$collectionItem = this->Fabrics->read(null, $collectId);
-		
-		?>
+		<?php foreach ($fabrics as $fb): ?>
 		<tr>
 		    <td><?php echo $fb['Fabric']['code']; ?></td>
 		    <td><?php echo $fb['Fabric']['description']; ?></td>
