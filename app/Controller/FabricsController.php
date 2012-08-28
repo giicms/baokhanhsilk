@@ -5,7 +5,6 @@ class FabricsController extends AppController {
 		function admin_index() {
 			$fabrics = $this->Fabric->find('all');
 			$this->Fabric->read(null, $fb['Fabric']['collection_id']);// get collection list
-			//pr($fabrics);
 		 	$this->set('fabrics', $fabrics);
 		 }
 		 
