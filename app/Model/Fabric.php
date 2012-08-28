@@ -11,6 +11,10 @@ class Fabric extends AppModel {
 			'allowEmpty' => false,
 			'rule' => array('minLength' => 255),
 			'message' => 'This field is required.'
+		),
+		'price' => array(
+			'rule' => '/^[0-9]*\\.?[0-9]+$/',
+			'message' => 'This must be a positive decimal number'  
 		)
 	);
 }
