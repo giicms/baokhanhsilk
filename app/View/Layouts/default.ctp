@@ -38,6 +38,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		
 		//echo $this->Html->css('cake.generic');
 		echo $this->Html->script('jquery-1.7.2');
+		echo $this->Html->script('jquery.validate.js');
 		echo $this->Html->script('bootstrap.min');
 		
 		

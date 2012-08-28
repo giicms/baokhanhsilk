@@ -118,6 +118,7 @@ class DesignsController extends AppController {
 			);
 			// luu
 			$this->Design->save($designData);
+			$this->redirect(array('action' => 'index'));
 		} else {
 			// lam cai chi o day sau
 		}
