@@ -9,7 +9,7 @@
 	echo $this->Form->create('Fabric', array('url'=>array('controller'=>'Fabrics', 'action'=>'add'), 'class'=>'well'));
 	echo $this->Form->input('code',array('label'=>'Fabric Code', 'div' => false, 'class' => 'span3', 'placeholder' => 'Type fabric code'));
 	echo $this->Form->input('description',array('label'=>'Description', 'div' => false, 'class' => 'span3', 'placeholder' => 'Type description'));
-	echo $this->Form->input('price',array('label'=>'Price', 'div' => false, 'class' => 'span3', 'placeholder' => 'price'));
+	echo $this->Form->input('price',array('label'=>'Price', 'div' => false, 'class' => 'span3', 'value' => '0'));
 	
 	$options = array('0' => '--Select Collection--');
 	
