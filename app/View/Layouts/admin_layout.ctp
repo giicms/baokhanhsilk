@@ -31,13 +31,16 @@
 	?>
 	
 	<script type="text/javascript">
-		jQuery(function($){
-			$('ul.mainnav li').click(function(event){
-				//event.preventDefault();
-				$('ul.mainnav li').removeClass('active');
-				$(this).addClass('active');     
-			});
+		$(document).ready(function(){
+			highlightSelected();
 		});
+		
+		function highlightSelected(){
+            var path = location.pathname;
+            if (path) {
+            	$('ul.mainnav li a[href="' + path + '"]').parent().addClass('active');
+        	}
+		}
   
 </script>
 </head>
@@ -89,50 +92,50 @@
 					<div class="container">
 						<ul class="mainnav">
 							<li>
-								<a href="#">
+								<a href="<?= $this->webroot?>admin/designs">
 									<i class="icon-design-menu"></i>
 									<span>Design</span>
 								</a>	    				
 							</li>
 							
 							<li>
-								<a href="#">
+								<a href="<?= $this->webroot?>admin/fabrics">
 									<i class="icon-fabric-menu"></i>
 									<span>Fabric</span>
 								</a>	    				
 							</li>
 							
 							<li>					
-								<a href="/baokhanhsilk/admin/Collections/index" class="dropdown-toggle">
+								<a href="<?= $this->webroot?>admin/Collections/index" class="dropdown-toggle">
 									<i class="icon-collect-menu"></i>
 									<span>Collection</span>
 								</a>	  				
 							</li>
 							
-							<li class="active">					
+							<li>					
 								
-								<a href="/baokhanhsilk/admin/Categories/index" class="dropdown-toggle">
+								<a href="<?= $this->webroot?>admin/Categories/index" class="dropdown-toggle">
 									<i class="icon-category-menu"></i>
 									<span>Categories</span>
 								</a>	  				
 							</li>
 	
 								<li>					
-								<a href="/baokhanhsilk/admin/Images/add">
+								<a href="<?= $this->webroot?>admin/Images/add">
 									<i class="icon-user-menu"></i>
 									<span>Galleries</span>
 								</a>  									
 							</li>
 							
 							<li>					
-								<a href="#">
+								<a href="<?= $this->webroot?>admin">
 									<i class="icon-user-menu"></i>
 									<span>User Management</span>
 								</a>  									
 							</li>
 							
 							<li>
-								<a href="#">
+								<a href="<?= $this->webroot?>/admin">
 									<i class="icon-report-menu"></i>
 									<span>Reports</span>
 								</a>    				
