@@ -7,8 +7,6 @@
 	<?php
 		echo $this->Html->meta('icon');
 
-		
-		//echo $this->Html->css('cake.generic');
 		echo $this->Html->script('jquery-1.7.2');
 		echo $this->Html->script('jquery.validate.js');
 		echo $this->Html->script('bootstrap.min');
@@ -23,7 +21,7 @@
 		echo $this->Html->css('plans');
 		echo $this->Html->css('dashboard');
 		echo $this->Html->css('base-admin');
-		echo $this->Html->css('screen');
+		//echo $this->Html->css('screen');
 		
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
