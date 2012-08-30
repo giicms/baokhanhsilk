@@ -8,16 +8,16 @@
 	<div class="span8">
 		<?php echo $this->Form->create('Design', array('type' => 'file')); ?>
 		<?php
-		App::import('model','Collection');
-		$collectionModel = new Collection();
-		$Collectionlist = $collectionModel->generateTreeList(null, null, null, " - ");
+		App::import('model','Category');
+		$categoryModel = new Category();
+		$Categorylist = $categoryModel->generateTreeList(null, null, null, " - ");
 		?>	
 			<legend>Add Design</legend>
 			<label>Code</label>
 			<input name="data[Design][code]" maxlength="20" type="text" id="DesignCode" class="required">
 			<label>Collection</label>
-			<select id="DesignCollectionId" class = "" name="collectionId">
-				<?php foreach ($Collectionlist as $key => $value) { ?>
+			<select id="DesignCategoryId" class = "" name="categoryId">
+				<?php foreach ($Categorylist as $key => $value) { ?>
 					<option value="<?=$key; ?>"><?=$value; ?></option>
 				<?php } ?>
 			</select>

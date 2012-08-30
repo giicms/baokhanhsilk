@@ -6,7 +6,7 @@
 	
 	<ul>
 	<?php	
-		foreach($CollectionList as $key=>$value){
+		foreach($Categorylist as $key=>$value){
 			$edit = $this->Html->link("Chỉnh sửa", array('action'=>'edit', $key));
 			//$delete = $html->link("Xóa", array('action'=>'delete', $key));
 	?>

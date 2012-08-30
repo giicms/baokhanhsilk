@@ -1,38 +1,20 @@
 <?php
 class DesignsController extends AppController {
 	public $name = "Designs";
-	public function admin_index() {
-		$this->layout = "admin_layout";
+
+	function admin_index() {
+			$this->layout = "admin_layout";
+			$designs = $this->Design->find('all');
+			//$this->Fabric->read(null, $fb['Fabric']['collection_id']);// get collection list
+		 	$this->set('designs', $designs);
 	}
-	
-	
-	/*
-	$this->layout = "admin_layout";
-				$this->Session->setFlash('');
-				if(!empty($this->data)) {
-					
-					$parent_id = $this->data['Collection']['parent_id'];
-					//$parent = $this->Collection->getById($parent_id, true);
-					$this->Collection->save($this->data);
-					$this->redirect(array( 'action' => 'admin_index'));
-				} else {
-					$parents[0] = '[ Top ]';
-					$Collectionlist = $this->Collection->generateTreeList(null, null, null, " - ");
-					if($Collectionlist) {
-						foreach ( $Collectionlist as $key=>$value ){
-							$parents[$key] = $value;
-						}
-						$this->set(compact('parents'));
-					}
-				}*/
-	
 	
 	public function admin_add() {
 		$this->layout = "admin_layout";
 		$this->Session->setFlash('');
 		if ( !empty( $this->data ) ) {
 			$data = $this->data['Design'];
-			$collection_id = $this->data['collectionId'];
+			$category_id = $this->data['categoryId'];
 			// Upload images
 			$fileName = $data['file']['name']; // the file name
 			$fileTmpLoc = $data['file']['tmp_name'];
@@ -112,7 +94,7 @@ class DesignsController extends AppController {
 			$designData = array('Design' => array(
 												'code' => $code,
 												'description' => $description,
-												'collection_id' => $collection_id,
+												'category_id' => $category_id,
 												'image_id' => $image_id
 											)
 			);

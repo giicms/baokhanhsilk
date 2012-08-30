@@ -3,7 +3,7 @@ App::uses('AuthComponent', 'Controller/Component');
 class Collection extends AppModel {
 	public $name = 'Collection';
 	public $actsAs = array('Tree');
-	public $hasMany = array('Fabric' => array('className' => 'Fabric'), 'Design');
+	public $hasMany = array('Fabric' => array('className' => 'Fabric'));
 	
 	var $validate = array(
 		'name' => array(
