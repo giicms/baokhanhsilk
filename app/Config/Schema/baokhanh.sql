@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 12, 2012 at 04:00 PM
+-- Generation Time: Aug 30, 2012 at 06:11 PM
 -- Server version: 5.5.25a
 -- PHP Version: 5.4.4
 
@@ -84,28 +84,15 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `rght` int(10) DEFAULT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id`, `parent_id`, `lft`, `rght`, `name`) VALUES
-(1, NULL, 1, 28, 'My Categories'),
-(2, 1, 2, 15, 'Fun'),
-(3, 2, 3, 8, 'Sport'),
-(4, 3, 4, 5, 'Surfing'),
-(5, 3, 6, 7, 'Extreme knitting'),
-(6, 2, 9, 14, 'Friends'),
-(7, 6, 10, 11, 'Gerald'),
-(8, 6, 12, 13, 'Gwendolyn'),
-(9, 1, 16, 27, 'Work'),
-(10, 9, 17, 22, 'Reports'),
-(11, 10, 18, 19, 'Annual'),
-(12, 10, 20, 21, 'Status'),
-(13, 9, 23, 26, 'Trips'),
-(14, 13, 24, 25, 'National'),
-(15, NULL, 29, 30, 'International');
+(16, 0, 1, 2, 'Men'),
+(17, 0, 3, 4, 'd');
 
 -- --------------------------------------------------------
 
@@ -115,9 +102,21 @@ INSERT INTO `categories` (`id`, `parent_id`, `lft`, `rght`, `name`) VALUES
 
 CREATE TABLE IF NOT EXISTS `collections` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `parent_id` int(10) DEFAULT NULL,
+  `lft` int(10) DEFAULT NULL,
+  `rght` int(10) DEFAULT NULL,
+  `name` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `collections`
+--
+
+INSERT INTO `collections` (`id`, `parent_id`, `lft`, `rght`, `name`) VALUES
+(1, NULL, 1, 6, 'Men'),
+(2, 1, 2, 3, 'Men Collection1 '),
+(3, 1, 4, 5, 'Men_Collection1 ');
 
 -- --------------------------------------------------------
 
@@ -132,7 +131,8 @@ CREATE TABLE IF NOT EXISTS `designs` (
   `category_id` int(10) NOT NULL,
   `image_id` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+
 
 -- --------------------------------------------------------
 
@@ -168,9 +168,9 @@ CREATE TABLE IF NOT EXISTS `fabrics` (
   `collection_id` int(10) NOT NULL,
   `image_id` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
--- --------------------------------------------------------
+
 
 --
 -- Table structure for table `images`
@@ -178,10 +178,11 @@ CREATE TABLE IF NOT EXISTS `fabrics` (
 
 CREATE TABLE IF NOT EXISTS `images` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `url` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=38 ;
+
 
 -- --------------------------------------------------------
 
