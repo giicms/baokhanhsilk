@@ -91,5 +91,8 @@ class PagesController extends AppController {
 		$this->layout = "admin_layout";
 
 	}
+	public function collections() {
+
+	}
 	
 }
