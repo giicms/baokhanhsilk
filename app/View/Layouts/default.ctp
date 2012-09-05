@@ -1,32 +1,6 @@
-<?php
-/**
- *
- * PHP 5
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       Cake.View.Layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
- */
-
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-    </style>
+<head>	
 	<?php echo $this->Html->charset(); ?>
 	<title>
 		
@@ -69,7 +43,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 						<a class="close" data-dismiss="modal">&times;</a>
     				<h1>Log in to Bao Khanh Silk</h1>
     				
-    				<form action="/baokhanhsilk/Users/login" method="POST" autocomplete="off">
+    				<form action="<?=$this->webroot?>Users/login" method="POST" autocomplete="off">
 			        <fieldset>
 			            <input type="text" placeholder="Username or email" name="username" maxlength="30" id="id_username" />
 			            <input type="password" placeholder="Password" name="password" id="id_password" />
@@ -79,19 +53,19 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			     </form>
 					</div>
 					<div class="modal hide fade" id="signup-modal">
-					    <a class="close" data-dismiss="modal">×</a>
+					    <a class="close" data-dismiss="modal">&times;</a>
 					    <h1>Sign up for Baokhanh Silk</h1>
 					    
 					
 					
-					      <form action="/baokhanhsilk/Users/signin" method="POST" autocomplete="off">
+					      <form action="<?=$this->webroot?>Users/signin" method="POST" autocomplete="off">
 					        <fieldset>
 					            <input type="text" placeholder="Username" name="username" maxlength="30" id="id_username">
 					            <input type="email" placeholder="Email" name="email" maxlength="75" id="id_email"><div class="email_suggestion"></div>
 					            <input type="password" placeholder="Password" name="password" id="id_password">
 					            <input type="submit" value="Sign Up" class="btn">
 					        </fieldset>
-					         <a href="/baokhanhsilk/Users/login/"><span>Already have an account?</span> Log in</a>
+					         <a href="<?=$this->webroot?>Users/login/"><span>Already have an account?</span> Log in</a>
 					     </form>
 					</div>					
 					<!-- het phan danh cho login va signin -->					
@@ -117,12 +91,12 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			        </a>
 			        <div class="nav-collapse">
 			          <ul class="nav">
-			            <li class="active"><a href="#"><i class="icon-home icon-white"></i>Home</a></li>
-			            <li><a href="#">Collections</a></li>
-			            <li><a href="/baokhanhsilk/farbics">Fabrics</a></li>
-			            <li><a href="/baokhanhsilk/order_online">How to Order Online</a></li>
-			            <li><a href="/baokhanhsilk/contactUs">Contact Us</a></li>
-			            <li><a href="/baokhanhsilk/aboutUs">About Us</a></li>
+			            <li class="active"><a href="<?=$this->webroot?>"><i class="icon-home icon-white"></i>Home</a></li>
+			            <li><a href="<?=$this->webroot?>collections">Collections</a></li>
+			            <li><a href="<?=$this->webroot?>farbics">Fabrics</a></li>
+			            <li><a href="<?=$this->webroot?>order_online">How to Order Online</a></li>
+			            <li><a href="<?=$this->webroot?>contactUs">Contact Us</a></li>
+			            <li><a href="<?=$this->webroot?>aboutUs">About Us</a></li>
 			          </ul>
 			          <form class="navbar-search pull-right" action="">
 			            <input type="text" class="search-query span2 " placeholder="Search" style="width:200px; margin-right:20px">
