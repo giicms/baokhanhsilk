@@ -238,4 +238,9 @@
       text-align: left;
       margin: 2px 0 0 0;
       color: #666; }
-			
+
+/*sydo*/
+.row-fluid .min-col{
+	background-color: #333;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 1);
+}
