@@ -91,7 +91,7 @@
 			        </a>
 			        <div class="nav-collapse">
 			          <ul class="nav">
-			            <li class="active"><a href="<?=$this->webroot?>"><i class="icon-home icon-white"></i>Home</a></li>
+			            <li class="active"><a href="<?=$this->webroot?>"><i class="icon-home icon-white"></i>&nbsp;Home</a></li>
 			            <li><a href="<?=$this->webroot?>collections">Collections</a></li>
 			            <li><a href="<?=$this->webroot?>farbics">Fabrics</a></li>
 			            <li><a href="<?=$this->webroot?>order_online">How to Order Online</a></li>
