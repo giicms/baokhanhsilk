@@ -2,15 +2,11 @@
 class UsersController extends AppController {
 	
 	public function login() {
-		pr("dkdkdkdk");
+		
 		if($this->request->is('post')) {
-			pr('zyx');
-			pr($_POST);
+			pr('dldl');
 			if ($this->Auth->login()) {
-				pr($_POST);
-				pr("acde");
 				$this->redirect($this->Auth->redirect());
-				
 			} else {
 				$this->Session->setFlash('Your username or passwordk was incorrect');
 			}

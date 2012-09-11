@@ -244,3 +244,72 @@
 	background-color: #333;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 1);
 }
+
+/*2012-09-10 */
+#subnav-two{
+	clear:both;
+  	overflow: hidden;
+  	margin-left:70px;
+  	margin-top:30px;
+}
+
+#subnav-two li{
+  	float: left;
+  	margin-right: 20px;
+  	/*border-top:2px solid #868686;
+  	border-bottom:2px solid #868686;*/
+}
+#subnav-two a{
+  	background: #e2e9ee;
+  	padding: 10px 16px;
+  	float: left;
+  	color:#45759d;
+  	text-decoration: none;
+  	position: relative;
+  	outline:none;
+}
+#subnav-two a:hover{
+  	background: #3f8ccd;
+  	color:#FFFFFF;
+}
+#subnav-two .active a:after{
+  	border-left-color: #3f8ccd;
+}
+#subnav-two a:hover,
+#subnav-two .active a {
+  	background: #3f8ccd;
+  	color:#FFFFFF;
+}
+#subnav-two .first:before{
+ 	border-color:#FFFFFF;
+}
+#subnav-two .first:hover:before{
+  	border-color:#FFFFFF;
+}
+#subnav-two a::before{
+  	content: "";
+  	position: absolute;
+  	top: 50%; 
+  	margin-top: -20px;   
+  	border-width: 20px 0 20px 13px;
+  	border-style: solid;
+ 	border-color: #e2e9ee #e2e9ee #e2e9ee transparent;
+  	left: -13px;
+}
+#subnav-two a:hover::before,
+#subnav-two .active a::before {
+  	border-color: #3f8ccd #3f8ccd #3f8ccd transparent;
+}
+#subnav-two a::after{
+  	content: "";
+  	position: absolute;
+  	top: 50%; 
+  	margin-top: -20px;   
+  	border-top: 20px solid transparent;
+  	border-bottom: 20px solid transparent;
+  	border-left: 13px solid #e2e9ee;
+  	right: -13px;
+}
+#subnav-two a:hover::after{
+ 	border-left-color: #3f8ccd;
+}

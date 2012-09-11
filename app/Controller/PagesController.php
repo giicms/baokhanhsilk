@@ -95,4 +95,7 @@ class PagesController extends AppController {
 
 	}
 	
+	public function order_step() {
+		
+	}
 }

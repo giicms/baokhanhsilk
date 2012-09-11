@@ -65,7 +65,15 @@
   <div class="span4">
   	<div class="collection">
       <h2>MEN </h2><h2> COLLECTION</h2>
-       <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+       <p> 
+       	<ul>
+       		<li><a href="<?=$this->webroot?>order_step">">Single Breasted Suits</a></li>
+       		<li><a href="<?=$this->webroot?>order_step">Double Breasted Suits</a></li>
+       		<li><a href="<?=$this->webroot?>order_step">Shirts</a></li>
+       	</ul>
+       	
+       		
+       </p>
       <p><a href="#"><span class="label label-info">View details</span> &raquo;</a></p>
 </div>
     

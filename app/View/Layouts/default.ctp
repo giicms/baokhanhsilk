@@ -43,10 +43,10 @@
 						<a class="close" data-dismiss="modal">&times;</a>
     				<h1>Log in to Bao Khanh Silk</h1>
     				
-    				<form action="<?=$this->webroot?>Users/login" method="POST" autocomplete="off">
+    				<form action="<?=$this->webroot?>Users/login" method="POST" autocomplete="off" id="login_form">
 			        <fieldset>
-			            <input type="text" placeholder="Username or email" name="username" maxlength="30" id="id_username" />
-			            <input type="password" placeholder="Password" name="password" id="id_password" />
+			            <input type="text" placeholder="Username or email" name="username" maxlength="30" id="id_username" class="required" />
+			            <input type="password" placeholder="Password" name="password" id="id_password"  class="required"/>
 			            <input type="submit" value="Log in" class="btn">
 			        </fieldset>
 			         <a href="/accounts/password/reset/"><span>Forgot password?</span></a> &middot; <a href="/signup/"><span>Sign up to Baokhanh</span></a>
@@ -128,6 +128,7 @@
         $('.carousel').carousel({
           interval: 4000
         });
+        $('#login_form').validate();
       });
     </script>
   </body>
