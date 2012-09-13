@@ -313,3 +313,40 @@
 #subnav-two a:hover::after{
  	border-left-color: #3f8ccd;
 }
+
+
+.table {
+	margin-left: 0px;
+}
+
+.table_content {
+	clear: both;
+}
+
+.mission,
+.date,
+.point_earned {
+	padding-top:5px;
+	height: 25px;
+	border-bottom:1px solid #cccccc;
+	float:left;
+	font-weight:bold;
+}
+
+.mission_content,
+.date_content,
+.point_content {
+	padding-top: 10px;
+	float:left;
+	height: 60px;
+	border-bottom:1px solid #cccccc;
+}
+
+.mission {
+	padding-left: 10px;
+	width: 495px;
+}
+
+.date {
+	width: 220px;
+}
