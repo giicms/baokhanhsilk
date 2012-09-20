@@ -67,7 +67,7 @@
       <h2>MEN </h2><h2> COLLECTION</h2>
        <p> 
        	<ul>
-       		<li><a href="<?=$this->webroot?>order_step">">Single Breasted Suits</a></li>
+       		<li><a href="<?=$this->webroot?>order_step">Single Breasted Suits</a></li>
        		<li><a href="<?=$this->webroot?>order_step">Double Breasted Suits</a></li>
        		<li><a href="<?=$this->webroot?>order_step">Shirts</a></li>
        	</ul>
