@@ -4,6 +4,7 @@
       }
       .thumbnail {
       	border: none;
+      	text-align: center;
       }
 			a.thumbnail:hover {
 			  border-color: none;
@@ -249,7 +250,7 @@
 #subnav-two{
 	clear:both;
   	overflow: hidden;
-  	margin-left:70px;
+  	margin-left:30px;
   	margin-top:30px;
 }
 
@@ -349,4 +350,16 @@
 
 .date {
 	width: 220px;
+}
+.txt_center{
+	text-align: center;
+}
+.width15{
+	width: 15%;
+}
+.width30{
+	width: 30%;
+}
+.inline{
+	display: inline-block;
 }
