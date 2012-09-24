@@ -3,3 +3,4 @@ config/database.php
 app/tmp/*
 app/config/database.php
 !emptyapp/Config/database.php
+cake/*
