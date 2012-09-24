@@ -19,9 +19,6 @@ echo $this->Form->end('Add');
 
 ?>
 			</div>
-			<div class="wrapButton">
-				<?php echo $this->Form->end('Add'); ?>
-			</div>
 		</div>
 	</div>
 	<div class="span2"></div>
