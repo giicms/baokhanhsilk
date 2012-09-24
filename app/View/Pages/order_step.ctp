@@ -55,524 +55,127 @@
 						<div id="tab1" class="tab-pane active">
 							<div class="row-fluid">
 								<ul class="thumbnails">
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <h3>Thumbnail label</h3>
-								      <p>Thumbnail caption...</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <h3>Thumbnail label</h3>
-								      <p>Thumbnail caption...</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <h3>Thumbnail label</h3>
-								      <p>Thumbnail caption...</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <label class="radio">
-									  	<input type="radio" name="design4" id="design4" value="4">
-									  	<h3>Thumbnail label</h3>
-									  </label>
-								      <p>Thumbnail caption...</p>
-								    </div>
-								  </li>
+					<?php
+					$numofDesign = count($designs);
+					for($i = 0; $i < $numofDesign; $i++) {
+						$data = $designs[$i];
+						$design = $data['Design'];
+						$code = $design['code'];
+						$description = $design['description'];
+						$image_id = $design['image_id'];
+						// lay ra image
+						App::import('model','Image');
+						App::import('model', 'StyleDetail');
+						$imageModel = new Image();
+						$image = $imageModel->findById($image_id);
+						$url = "";
+						if(isset($image)) {
+							$url = $image['Image']['url'];
+						}
+					//	pr($image);
+						echo	"<li class='span3'>"
+									."<div class='thumbnail'>"
+										."<img src='" .$this->webroot.$url. "' alt='' />"
+										."<h3>".$code."</h3>"
+										."<p>".$description."</p>"
+										."<p><input name='style_design' type='radio' />Select One</p>"
+									."</div>"
+								."</li>";	
+					}
+					?>									
 								</ul>
 							</div>
 						</div>
 						<div id="tab2" class="tab-pane">
-							<div class="row-fluid">
-								<p><h4>1. Jacket Type:</h4></p>
-								<p>95% of our customers choose 2 or 3 button single breasted jackets.</p>
-							</div>
-							<div class="row-fluid">
-								<ul class="thumbnails">
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								</ul>
-							</div>
-							<div class="row-fluid">
-								<p><h4>2. Lapel Type:<h4></p>
-								<p>Notch lapels are common, while peak lapels are considered more formal. Make sure to match peak lapels with a double breasted jacket; hand stitching is a matter of taste..</p>
-							</div>
-							<div class="row-fluid">
-								<ul class="thumbnails">
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								</ul>
-							</div>
-							<div class="row-fluid">
-								<p><h4>3. Black Vents:</h4></p>
-								<p>Most men are flattered by a double vent..</p>
-							</div>
-							<div class="row-fluid">
-								<ul class="thumbnails">
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								</ul>
-							</div>
-							<div class="row-fluid">
-								<p><h4>4. Jacket Pockets:</h4></p>
-								<p>Ticket pockets are a great accessory, especially on tall men. The slanted pockets give your jacket an English flavor.</p>
-							</div>
-							<div class="row-fluid">
-								<ul class="thumbnails">
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								</ul>
-							</div>
-							<div class="row-fluid">
-								<p><h4>5. Sleeve Buttons</h4></p>
-								<p>Have at least as many buttons on your sleeve as you have on your front. All buttons are fully functional.</p>
-							</div>
-							<div class="row-fluid">
-								<ul class="thumbnails">
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								</ul>
-							</div>
-							<div class="row-fluid">
-								<p><h4>6. Jacket Interior Lining</h4></p>
-								<p>We are happy to match your lining with your jacket's fabric, but feel free to choose whatever color you want.</p>
-							</div>
-							<div class="row-fluid">
-								<ul class="thumbnails">
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								</ul>
-							</div>
-							<div class="row-fluid">
-								<p><h4>7. Trouser Pleats</h4></p>
-								<p>No pleats look great on thin men, double pleats for those with a bit more size, single pleats are a great compromise.</p>
-							</div>
-							<div class="row-fluid">
-								<ul class="thumbnails">
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								</ul>
-							</div>
-							<div class="row-fluid">
-								<p><h4>8. Front Pocket</h4></p>
-							</div>
-							<div class="row-fluid">
-								<ul class="thumbnails">
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								</ul>
-							</div>
-							
-							<div class="row-fluid">
-								<p><h4>9. Waist Strap</h4></p>
-							</div>
-							<div class="row-fluid">
-								<ul class="thumbnails">
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								</ul>
-							</div>
-							<div class="row-fluid">
-								<p><h4>10. Number and Position of Back Pockets</h4></p>
-								<p>Why not make these trousers truly unique and eliminate a needless pocket?</p>
-							</div>
-								<div class="row-fluid">
-								<ul class="thumbnails">
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								</ul>
-							</div>
-							<div class="row-fluid">
-								<p><h4>11. Back Pocket Type</h4></p>
-							</div>
-								<div class="row-fluid">
-								<ul class="thumbnails">
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								</ul>
-							</div>
-							<div class="row-fluid">
-								<p><h4>12. Trouser Bottoms</h4></p>
-								<p>Tall men typically go for cuffs while shorter men are best served by the no cuff; in addition, no pleats calls for no cuffs and two pleats requrite cuffs. Men who chose to have single pleat trouser can choose either option.</p>
-							</div>
-								<div class="row-fluid">
-								<ul class="thumbnails">
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/200x300" alt="">
-								      <p><input name='style_design' type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								</ul>
-							</div>
-							
-							
+					<?php
+					// o day la lay style ra de ma loc qua ne
+					$numofStyles = 		count($styles);
+			for($j = 0; $j < $numofStyles; $j++){
+				$style = $styles[$j];
+				
+				$styleId = $style['Style']['id'];
+				$stylename = $style['Style']['name'];
+				$styleDescription = $style['Style']['description'];
+				echo	'<div class="row-fluid">' 
+						 .	"<p><h4>".$stylename."</h4></p>"
+						 .	"<p>".$styleDescription."</p>"
+						 ."</div>";						
+				echo 	'<div class="row-fluid">';
+				echo	 	'<ul class="thumbnails">';
+				// o day thi` in ra style detail
+				$styleDetaiModel = new StyleDetail();
+				$styleDetails = $styleDetaiModel->findAllByStyleId($styleId);
+				$numOfstyleDetails = count($styleDetails);
+				for($k = 0; $k < $numOfstyleDetails; $k++){
+					$styleDetail = $styleDetails[$k]['StyleDetail'];
+					if(isset($styleDetail)) {
+						$imageModel = new Image();
+						$image = $imageModel->findById($styleDetail['image_id']);
+						$url = $image['Image']['url'];
+						echo '<li class="span3">';
+						echo 		'<div class="thumbnail">';
+						echo 			'<img src="'.$this->webroot.$url.'" alt="">';
+						echo 			'<p><input name="style_design" type="radio" />' .$styleDetail['name']. '</p>';
+						echo 		'</div>';
+						echo '</li>';
+					}
+				}
+				
+				
+				echo	 	'</ul>';
+				echo 	'</div>';			
+			}
+					?>							
 						</div>
 						<div id="tab3" class="tab-pane">
-							<div class="row-fluid">
-								<p><h4>Cashmere & Silk</h4></p>
-							</div>
-							<div class="row-fluid">
-								<ul class="thumbnails">
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/150x150" alt="">
-								      <p><input type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/150x150" alt="">
-								      <p><input type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/150x150" alt="">
-								      <p><input type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/150x150" alt="">
-								      <p><input type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								</ul>
-							</div>
-							
-							<div class="row-fluid">
-								<p><h4>Cashmere Wool</h4></p>
-							</div>
-							<div class="row-fluid">
-								<ul class="thumbnails">
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/150x150" alt="">
-								      <p><input type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/150x150" alt="">
-								      <p><input type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/150x150" alt="">
-								      <p><input type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/150x150" alt="">
-								      <p><input type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								</ul>
-							</div>
-							
-							<div class="row-fluid">
-								<p><h4>Cashmere Wool</h4></p>
-							</div>
-							<div class="row-fluid">
-								<ul class="thumbnails">
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/150x150" alt="">
-								      <p><input type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/150x150" alt="">
-								      <p><input type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/150x150" alt="">
-								      <p><input type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								  <li class="span3">
-								    <div class="thumbnail">
-								      <img src="http://placehold.it/150x150" alt="">
-								      <p><input type="radio" />One button, Single breasted Jacket</p>
-								    </div>
-								  </li>
-								</ul>
-							</div>
+			<?php
+				// lay fabric theo category
+				$numofCategories = count($categories);
+				//pr($categories);
+				for($i = 0; $i < $numofCategories; $i++){
+					$category = $categories[$i]['Category'];
+					$fabrics = $categories[$i]['Fabric'];
+					$categoryName = $category['name'];
+					echo '<div class="row-fluid">';
+					echo 	'<p><h4>'.$categoryName.'</h4></p>';
+					echo '</div>';
+					echo '<div class="row-fluid">';
+					echo '<ul class="thumbnails">';
+					if(isset($fabrics)) {
+						for($x = 0; $x < count($fabrics); $x++) {
+							$fabric = $fabrics[$x];
+							$imageId = $fabric['image_id'];
+							$fabricCode = $fabric['code'];
+							$price = $fabric['price'];
+							$fabricDescription = $fabric['description'];
+							$imageModel = new Image();
+							$image = $imageModel->findById($imageId);
+							$url = $image['Image']['url'];
+							echo '<li class="span3">';
+							echo 		'<div class="thumbnail">';
+							echo 			'<img src="'.$this->webroot.$url.'" alt="">';
+							echo 			'<p>'.$fabricCode.'</p>';
+							echo 			'<p>'.$fabricDescription.'</p>';
+							echo 			'<p>';
+							echo 				'Price: '.$price;
+							echo 				'<input name="style_design" type="radio" />Select One</p>';
+							echo 			'</p>';
+							echo 		'</div>';
+							echo '</li>';
+						}
+						
+					}
+					echo '</ul>';
+					echo '</div>';
+				}
+			?>				
 						</div>
 						<div id="tab4" class="tab-pane">
+			<?php
+						if($type == "1") { // Men mesurament
+							
+						
+			?>		
 							<table class="table table-bordered">
 								<tbody>
 									<tr>
@@ -772,12 +375,19 @@
 									</tr>
 								</tbody>
 							</table>
+				<?php
+					} else {
+						echo "tao them 1 cai women collection vo day";
+						
+					}
+				?>			
+							
 						</div>
 						<div id="tab5" class="tab-pane">
 							<form>
 							  <legend>Legend</legend>
 							  <label>Label name</label>
-							  <input type="text" placeholder="Type something…">
+							  <input type="text" placeholder="Type something�">
 							  <span class="help-block">Example block-level help text here.</span>
 							  <label class="checkbox">
 							    <input type="checkbox"> Check me out

@@ -55,9 +55,6 @@
 					<div class="modal hide fade" id="signup-modal">
 					    <a class="close" data-dismiss="modal">&times;</a>
 					    <h1>Sign up for Baokhanh Silk</h1>
-					    
-					
-					
 					      <form action="<?=$this->webroot?>Users/signin" method="POST" autocomplete="off">
 					        <fieldset>
 					            <input type="text" placeholder="Username" name="username" maxlength="30" id="id_username">

@@ -10,7 +10,7 @@ if(!empty($fabrics)){
 				<th>Code</th>
 				<th>Description</th>
 				<th>Price</th>
-				<th>Collection Name</th>
+				<th>Category Name</th>
 				<th>Images</th>
 				<th>Action</th>
 			</tr>
@@ -18,12 +18,20 @@ if(!empty($fabrics)){
 		
 		<tbody>
 		<?php foreach ($fabrics as $fb): ?>
+		<?php
+			//get image id
+			$image_id = $fb['Fabric']['image_id'];
+			App::import('model','Image');
+			$imageModel = new Image();
+			$image = $imageModel->findById($image_id);
+			$image_url = $image['Image']['url'];
+		?>
 		<tr>
 		    <td><?php echo $fb['Fabric']['code']; ?></td>
 		    <td><?php echo $fb['Fabric']['description']; ?></td>
 		    <td><?php echo $fb['Fabric']['price']; ?></td>
-		    <td><?php echo $fb['Collection']['name']; ?></td>
-		    <td><?php echo $fb['Fabric']['image_id']; ?></td>
+		    <td><?php echo $fb['Category']['name']; ?></td>
+			<td><img src="<?=$this->webroot.$image_url?>" alt="" /></td>
 		    <td>
 		    	<?php
 		    		echo $this->Html->link('edit', array('action'=>'edit', $fb['Fabric']['id'])) . "&nbsp;&nbsp;&nbsp;"; 

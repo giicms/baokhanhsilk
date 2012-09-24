@@ -5,7 +5,7 @@ class User extends AppModel {
 	
 	
 	public $name = 'User';
-	
+	/*
 	var $validate = array(
 		'role_id' => array(
 				'numeric' => array(
@@ -44,7 +44,7 @@ class User extends AppModel {
 				)
 		),
 	);
-	
+	*/
 	public function checkUsernameDuplication($check) {
 			$count = $this->find('count', array(
 							'conditions' =>$check,
@@ -54,7 +54,7 @@ class User extends AppModel {
 			return $count == 0;
 	}
 	
-	public function checkEmailDuplication() {
+	public function checkEmailDuplication($check) {
 			$count = $this->find('count', array(
 							'conditions' =>$check,
 							'recursive' => -1
@@ -63,24 +63,26 @@ class User extends AppModel {
 			return $count == 0;
 	}
 	
+  /*
   public $belongsTo = array('Role');
-  public $actsAs = array('Acl' => array('type' => 'requester'));
-
-  public function parentNode() {
-      if (!$this->id && empty($this->data)) {
-          return null;
-      }
-      if (isset($this->data['User']['role_id'])) {
-          $roleId = $this->data['User']['role_id'];
-      } else {
-          $roleId = $this->field('role_id');
-      }
-      if (!$roleId) {
-          return null;
-      } else {
-          return array('Role' => array('id' => $roleId));
-      }
-  }
+    public $actsAs = array('Acl' => array('type' => 'requester'));
+  
+    public function parentNode() {
+        if (!$this->id && empty($this->data)) {
+            return null;
+        }
+        if (isset($this->data['User']['role_id'])) {
+            $roleId = $this->data['User']['role_id'];
+        } else {
+            $roleId = $this->field('role_id');
+        }
+        if (!$roleId) {
+            return null;
+        } else {
+            return array('Role' => array('id' => $roleId));
+        }
+    }*/
+  
 
 	public function beforeSave($options = array()) {
 		if (isset($this->data[$this->alias]['password'])) {

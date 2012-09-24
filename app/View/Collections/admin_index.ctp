@@ -1,10 +1,10 @@
 <?php echo $this->Session->flash();?>
 <div id="categories-list" class="categories index">
 	<div class="list-title"><?php __('Danh sách danh mục');?></div>
-	<br /><br /><br />	
+	
 	<div style=" line-height: 1.62em;">
 	
-	<ul>
+	<ul class="wrapCollection">
 	<?php	
 		foreach($CollectionList as $key=>$value){
 			$edit = $this->Html->link("Chỉnh sửa", array('action'=>'edit', $key));
@@ -16,10 +16,12 @@
 	?>
 		</ul>
 	</div>
-	<br /><br /><br />	
-	<?php	
-		echo $this->Html->link("Thêm mới",array('action'=>'add'));
-	?>
+
+	<div style="padding-top:10px;">
+		<?php	
+			echo $this->Html->link("Thêm mới",array('action'=>'add'));
+		?>
+	</div>
 </div>
 
 <script type="text/javascript">

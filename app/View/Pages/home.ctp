@@ -61,39 +61,41 @@
 </div>
 
 <!-- Example row of columns -->
-<div class="row">
-  <div class="span4">
-  	<div class="collection">
-      <h2>MEN </h2><h2> COLLECTION</h2>
-       <p> 
-       	<ul>
-       		<li><a href="<?=$this->webroot?>order_step">Single Breasted Suits</a></li>
-       		<li><a href="<?=$this->webroot?>order_step">Double Breasted Suits</a></li>
-       		<li><a href="<?=$this->webroot?>order_step">Shirts</a></li>
-       	</ul>
-       	
-       		
-       </p>
-      <p><a href="#"><span class="label label-info">View details</span> &raquo;</a></p>
-</div>
-    
-  </div>
-  <div class="span4">
-  	<div class="collection">
-      <h2>WOMEN </h2><h2> COLLECTION</h2>
-       <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><a href="#"><span class="label label-info">View details</span> &raquo;</a></p>
-     </div>
- </div>
-  <div class="span4">
-  	<div class="collection">
-      <h2>KID </h2><h2> COLLECTION</h2>
-      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      <p><a href="#"><span class="label label-info">View details</span> &raquo;</a></p>
-    </div>
-  </div>
-</div>
+<div class="row-fluid">
+<?php
+// cho ni lay du lieu ra ne
+// 
+	App::import('model','Collection');
+	$collection = new Collection();
+	$parent = $collection->getParentNode();
+	$numofParent = count($parent);
+	if(count($parent) > 0) {
+		for ($i = 0; $i < $numofParent; $i++){
+			$parentCollection = $parent[$i];
+			$parentName = $parentCollection['Collection']['name'];
+			$parent_id = $parentCollection['Collection']['id'];
+			echo	"<div class='span6'>"
+						."<div class='collection'>"
+							."<h2>". $parentName ."</h2>"."<h2> COLLECTION</h2>"
+							."<p>"
+								."<ul>";
+								$child = $collection->getChildCollection($parent_id);
+								for($j = 0; $j < count($child); $j++) {
+									$childCollection = $child[$j];
+									$childName = $childCollection['Collection']['name'];
+									$collectionId = $childCollection['Collection']['id'];
+									echo "<li>"."<a href='".$this->webroot."order_step/".$collectionId."'>".$childName."</a>"."</li>";
+								}
+						echo 	"</ul>"
+							."</p>";
+			echo		"</div>"
+					."</div>"	;		
+		}
+	}
+			
+?>
 
+</div>
 <div class="seperator"></div>
 <div class="row-fluid">
 	<div class="span12">

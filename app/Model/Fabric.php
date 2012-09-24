@@ -3,7 +3,7 @@ App::uses('AuthComponent', 'Controller/Component');
 class Fabric extends AppModel {
 	public $name = 'Fabric';
 	
-	var $belongsTo = array('Collection' => array('className' => 'Collection'));
+	var $belongsTo = array('Category' => array('className' => 'Category'));
 	
 	/* Tam thoi comment validate lai
 	 * tuan sau xu ly no 
@@ -19,7 +19,15 @@ class Fabric extends AppModel {
 				'message' => 'This must be a positive decimal number'  
 			)
 		);*/
-	
+	public function getById($id) {
+		$fabric = $this->find('first', array(
+												'conditions' => array(
+													'Fabric.id' => $id
+												),
+												'rescursive' => -1			
+		));
+		return $fabric ;
+	}
 }
 
 ?>

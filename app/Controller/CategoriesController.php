@@ -105,7 +105,6 @@ class CategoriesController extends AppController {
 			$this->layout = "admin_layout";
 			$this->Session->setFlash('');
 			if(!empty($this->data)) {
-				
 				$parent_id = $this->data['Category']['parent_id'];
 				//$parent = $this->Category->getById($parent_id, true);
 				$this->Category->save($this->data);

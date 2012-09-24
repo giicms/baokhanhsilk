@@ -71,11 +71,10 @@ class CollectionsController extends AppController {
 	function admin_edit($id = null) {
 			$this->layout = 'admin_layout';
 			if ( !empty($this->data) ) {
-				pr($this->data);
 				if ( $this->Collection->save($this->data) == false ){
-					$this->Session->setFlash('Can not edit collection');
+					$this->Session->setFlash('<p class="info" id="error"><span class="info_inner">Can not edit collection</span></p>');
 				} 
-				//$this->redirect(array('action' => 'admin_index'));	
+				$this->redirect(array('action' => 'admin_index'));	
 			} else {
 				if( $id == null ) die("No Id received");
 				$this->data = $this->Collection->read(null, $id);
@@ -99,7 +98,7 @@ class CollectionsController extends AppController {
 		$this->Collection->id=$id;
 		if($this->Collection->removeFromTree($id,true)==false)
 		$this->Session->setFlash('Không thể xóa danh mục.');
-		$this->Session->setFlash('Đã xóa danh mục '.$ten);
+		$this->Session->setFlash('<p class="info" id="success"><span class="info_inner">Đã xóa danh mục '.$ten.'</span></p>');
 	}
  }
  ?>

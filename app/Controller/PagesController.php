@@ -96,6 +96,42 @@ class PagesController extends AppController {
 	}
 	
 	public function order_step() {
+		$this->layout = "default";
+		$collectionId = $this->passedArgs[0];
+		App::import('model','Design');
+		App::import('model','Collection');
+		App::import('model', 'Style');
+		App::import('model', 'Category');
+		$designModel = new Design();
+		$designs = $designModel->findByCollectionId($collectionId);
+		$this->set('designs',$designs);
+		// cách làm là như ri: kiểm tra cái collection đó thuộc vô cái mô
+		//1 xem collection la Men hay women
+		$collectionModel = new Collection();
+		$collection = $collectionModel->findById($collectionId);
+		$parentId = $collection['Collection']['parent_id'];
+		$collectionParent = $collectionModel->findById($parentId);
+		$collectionName = $collectionParent['Collection']['name'];
+		//2 Neu ma collectionName = Men thi loc trong bang Style lay nhung Style la co' type la 1
+		// collectionName = Women thi laays syte type= 0
+		$styleModel = new Style();
+		$styles ="";
+		$type = ""; 		// bien nay dung de xac dinh collection la Men hay Women
 		
+		if($collectionName == "Men") {
+			$styles = $styleModel->findAllByType('1');
+			$type = "1";
+		} else {
+			$styles = $styleModel->findAllByType('0');
+			$type = "0";
+		}
+		$this->set('styles',$styles);
+		
+		// Toi phan fabric roi
+		// lay ra category ne
+		$categoryModel = new Category();
+		$categories = $categoryModel->find('all');
+		$this->set('categories', $categories);
+		$this->set('type', $type);
 	}
 }

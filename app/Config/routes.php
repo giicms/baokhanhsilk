@@ -31,7 +31,7 @@
 	Router::connect('/order_online', array('controller' => 'pages', 'action' => 'order_online'));
 	Router::connect('/farbics', array('controller' => 'pages', 'action' => 'farbics'));
 	Router::connect('/collections', array('controller' => 'pages', 'action' => 'collections'));
-	Router::connect('/order_step', array('controller' => 'pages', 'action' => 'order_step'));
+	Router::connect('/order_step/*', array('controller' => 'pages', 'action' => 'order_step'));
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */

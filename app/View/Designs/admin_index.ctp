@@ -17,11 +17,20 @@ if(!empty($designs)){
 		
 		<tbody>
 		<?php foreach ($designs as $ds): ?>
+		<?php
+			//get image id
+			$image_id = $ds['Design']['image_id'];
+			App::import('model','Image');
+			$imageModel = new Image();
+			$image = $imageModel->findById($image_id);
+			$image_url = $image['Image']['url'];
+		?>
+		
 		<tr>
 		    <td><?php echo $ds['Design']['code']; ?></td>
 		    <td><?php echo $ds['Design']['description']; ?></td>
-		    <td><?php echo $ds['Category']['name']; ?></td>
-		    <td><?php echo $ds['Design']['image_id']; ?></td>
+		    <td><?php echo $ds['Collection']['name']; ?></td>
+			<td><img src="<?=$this->webroot.$image_url?>" alt="" /></td>
 		    <td>
 		    	<?php
 		    		echo $this->Html->link('edit', array('action'=>'edit', $ds['Design']['id'])) . "&nbsp;&nbsp;&nbsp;"; 

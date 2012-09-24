@@ -1,0 +1,83 @@
+/*******************************************************************************
+  Informational Messages
+*******************************************************************************/
+.info  {
+	display: block;
+	background: url('../images/informationbar_right.gif') no-repeat 12px 0px;
+	height: 30px;
+	overflow: hidden;
+	margin-top: 5px;
+	margin-bottom:10px !important;
+	padding: 0px !important;
+	font-size: 12px !important;
+	font-weight: bold;
+	cursor: pointer;
+	border: 0px;
+	font-style: italic;
+}
+.info .info_inner {
+  display: block;
+  height: 30px;
+  padding: 3px 10px 0px 35px;
+}
+#success .info_inner {
+  color: #5a801b;
+  background: url('../images/icon_success.gif') no-repeat 0 0;
+  border: 0px;
+}
+
+#error {
+	color: #C00;
+	background: url('../images/icon_error.gif') no-repeat 0 0;
+	border: 0px;	
+}
+/**********************************/
+.wrapFrm{
+	border:1px solid #AAA;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	min-width:768px;
+}
+.wrapFrm legend{
+	border-bottom:1px solid #AAA;
+	color: #222;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	background: #CCC url(../images/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x;
+	width:758px;
+	padding-left:10px;
+	border-top-right-radius:4px;
+	-moz-border-radius-topright:4px;
+	-webkit-border-top-right-radius:4px;
+}
+
+.wrapControl{
+	margin-left: 20px;
+	width:100%;
+}
+
+.wrapControl label{
+	font-weight: bold;
+}
+
+.wrapButton{
+	width:100%;
+	margin:10px 10px 10px 20px;
+}
+
+.backLink{
+	float:right;
+	margin-right: 10px;
+}
+
+ul.wrapCollection{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+
+ul.wrapCollection li{
+	padding:5px;
+}

@@ -21,6 +21,7 @@
 		echo $this->Html->css('plans');
 		echo $this->Html->css('dashboard');
 		echo $this->Html->css('base-admin');
+		echo $this->Html->css('admin');
 		//echo $this->Html->css('screen');
 		
 		echo $this->fetch('meta');
@@ -31,6 +32,10 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			highlightSelected();
+			
+			$(".info_inner").click(function(){
+				$("#flashMessage").hide();
+			})
 		});
 		
 		function highlightSelected(){
@@ -118,10 +123,23 @@
 								</a>	  				
 							</li>
 	
-								<li>					
+							<li>					
 								<a href="<?= $this->webroot?>admin/Images/add">
 									<i class="icon-user-menu"></i>
 									<span>Galleries</span>
+								</a>  									
+							</li>
+							<li>					
+								<a href="<?= $this->webroot?>admin/Styles/index">
+									<i class="icon-user-menu"></i>
+									<span>Style</span>
+								</a>  									
+							</li>
+							
+							<li>					
+								<a href="<?= $this->webroot?>admin/StyleDetails/index">
+									<i class="icon-user-menu"></i>
+									<span>StyleDetail</span>
 								</a>  									
 							</li>
 							
