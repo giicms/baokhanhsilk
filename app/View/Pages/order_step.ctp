@@ -15,14 +15,12 @@
 								<th>Price</th>
 							</tr>
 						</thead>
-						
 						<tbody>
 							<tr>
 								<td></td>
 								<td></td>
 								<td> <input type="text" name="quantity1" class="input-mini"> </td>
 								<td>$</td>
-								
 							</tr>
 						</tbody>
 					</table>
@@ -56,6 +54,11 @@
 							<div class="row-fluid">
 								<ul class="thumbnails">
 					<?php
+						App::import('model','Image');
+						App::import('model', 'StyleDetail');
+	if(isset($design) && count($designs) > 0 ) {
+		
+						
 					$numofDesign = count($designs);
 					for($i = 0; $i < $numofDesign; $i++) {
 						$data = $designs[$i];
@@ -64,8 +67,7 @@
 						$description = $design['description'];
 						$image_id = $design['image_id'];
 						// lay ra image
-						App::import('model','Image');
-						App::import('model', 'StyleDetail');
+					
 						$imageModel = new Image();
 						$image = $imageModel->findById($image_id);
 						$url = "";
@@ -82,6 +84,9 @@
 									."</div>"
 								."</li>";	
 					}
+			}	else {
+				echo "This collection have no design please contact to admin";
+			}
 					?>									
 								</ul>
 							</div>
@@ -89,6 +94,9 @@
 						<div id="tab2" class="tab-pane">
 					<?php
 					// o day la lay style ra de ma loc qua ne
+	if(isset($styles) && count($styles) > 0 && isset($design) && count($designs) > 0) {
+		
+//pr($styles);
 					$numofStyles = 		count($styles);
 			for($j = 0; $j < $numofStyles; $j++){
 				$style = $styles[$j];
@@ -120,15 +128,17 @@
 						echo '</li>';
 					}
 				}
-				
-				
 				echo	 	'</ul>';
 				echo 	'</div>';			
 			}
+	}	else {
+		echo "Have no design for this collection please add Design";
+	}			
 					?>							
 						</div>
 						<div id="tab3" class="tab-pane">
 			<?php
+		if(isset($categories) && count($categories) > 0 && isset($styles) && count($styles) > 0 && isset($design) && count($designs) > 0) {			
 				// lay fabric theo category
 				$numofCategories = count($categories);
 				//pr($categories);
@@ -141,7 +151,7 @@
 					echo '</div>';
 					echo '<div class="row-fluid">';
 					echo '<ul class="thumbnails">';
-					if(isset($fabrics)) {
+					if(isset($fabrics) && count($fabrics) > 0) {
 						for($x = 0; $x < count($fabrics); $x++) {
 							$fabric = $fabrics[$x];
 							$imageId = $fabric['image_id'];
@@ -168,6 +178,10 @@
 					echo '</ul>';
 					echo '</div>';
 				}
+	} else {
+		echo "Have no category. Please contact to admin to add categories";
+	}
+	
 			?>				
 						</div>
 						<div id="tab4" class="tab-pane">
@@ -377,8 +391,345 @@
 							</table>
 				<?php
 					} else {
-						echo "tao them 1 cai women collection vo day";
-						
+				?>
+				
+							<table class="table table-bordered">
+								<tbody>
+									<tr>
+										<td colspan="4">
+											<div class='thumbnail'>
+												<h5>Please Select Your Shoulder Style:</h5>
+												<div class='width30 inline'>											
+													<p><?=$this->html->image('wshoulder01.gif');?></p>
+													<label for='shoulder'>
+													<input name='shoulder' type='radio' id='shoulder'>sloping
+													</label>
+												</div>
+												
+												<div class='width30 inline'>											
+													<p><?=$this->html->image('wshoulder01.gif');?></p>
+													<label for='regular'>
+													<input name='shoulder' type='radio' id='regular'>regular
+													</label>
+												</div>
+												
+												<div class='width30 inline'>											
+													<p><?=$this->html->image('wshoulder01.gif');?></p>
+													<label for='square'>
+													<input name='shoulder' type='radio' id='square'>square
+													</label>
+												</div>
+											</div>
+										</td>
+									</tr>
+									
+									<tr>
+										<td colspan='4'><h5 class='txt_center'>Please Select Your Chest Style:</h5></td>
+									</tr>
+									<tr>
+										<td colspan='4'>
+											<div class='thumbnail'>
+												<div class='width15 inline'>											
+													<p><?=$this->html->image('chest03.gif');?></p>
+													<label for='normal-posture'>
+													<input name='figureStyle' type='radio' id='normal-posture'>Full Chest
+													</label>
+												</div>
+												
+												<div class='width15 inline'>											
+													<p><?=$this->html->image('chest03.gif');?></p>
+													<label for='erect'>
+													<input name='figureStyle' type='radio' id='erect'>Standard
+													</label>
+												</div>
+												
+												<div class='width15 inline'>											
+													<p><?=$this->html->image('chest03.gif');?></p>
+													<label for='forward_stoop'>
+													<input name='figureStyle' type='radio' id='forward_stoop'>Even
+													</label>
+												</div>
+											</div>
+										</td>
+									</tr>
+									
+									<tr>
+										<td colspan='4'><h5 class='txt_center'>Please Select Your Back Style:</h5></td>
+									</tr>
+									<tr>
+										<td colspan='4'>
+											<div class='thumbnail'>
+												<div class='width15 inline'>											
+													<p><?=$this->html->image('back01.gif');?></p>
+													<label for='normal-posture'>
+													<input name='figureStyle' type='radio' id='normal-posture'>Stout
+													</label>
+												</div>
+												
+												<div class='width15 inline'>											
+													<p><?=$this->html->image('back01.gif');?></p>
+													<label for='erect'>
+													<input name='figureStyle' type='radio' id='erect'>Hollow Back
+													</label>
+												</div>
+												
+												<div class='width15 inline'>											
+													<p><?=$this->html->image('back01.gif');?></p>
+													<label for='forward_stoop'>
+													<input name='figureStyle' type='radio' id='forward_stoop'>Very Erect
+													</label>
+												</div>
+											</div>
+										</td>
+									</tr>
+									
+									<tr>
+										<td width='25%'>
+											<strong>1.Front Length (Shoulder to Waist)</strong>
+											<p>Measure from shoulder seam (at neck) over bustto waist.</p>
+											<p class='txt_center'><?=$this->html->image('wmeasure08.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='fullShoulder' type='text' class='input-mini'> </p>
+										</td>
+										<td width='25%'>
+											<strong>2. Back Length</strong>
+											<p>Measure from the collar seam to back waist line.</p>
+											<p class='txt_center'><?=$this->html->image('wmeasure09.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='sleeves' type='text' class='input-mini'> </p>
+										</td>
+										<td width='25%'>
+											<strong>3.Front Width (Arm to Arm) </strong>
+											<p>Measure from top armpit angle to other armpitangle across the front chest.</p>
+											<p class='txt_center'><?=$this->html->image('wmeasure06.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='chest' type='text' class='input-mini'> </p>
+										</td>
+										<td width='25%'> 
+											<strong>4. Back Width (Arm to Arm)</strong>
+											<p>Measure from top armpit angle to other armpit angle acrossyour back.</p>
+											<p class='txt_center'><?=$this->html->image('wmeasure11.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='stomach' type='text' class='input-mini'> </p>
+										</td>
+									</tr>
+									
+									<tr>
+										<td width='25%'>
+											<strong>5. Neck</strong>
+											<p>Measure around the neck and add 1/2 inces. </p>
+											<p class='txt_center'><?=$this->html->image('wmeasure12.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='frontCoatLng' type='text' class='input-mini'> </p>
+										</td>
+										<td width='25%'>
+											<strong>6. Full Shoulder</strong>
+											<p>Measure across back at end of shoulders.</p>
+											<p class='txt_center'><?=$this->html->image('wmeasure10.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='coatLng' type='text' class='input-mini'> </p>
+										</td>
+										<td width='25%'>
+											<strong>7.Armhole</strong>
+											<p>Measure around the armhole </p>
+											<p class='txt_center'><?=$this->html->image('wmeasure21.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='front' type='text' class='input-mini'> </p>
+										</td>
+										<td width='25%'> 
+											<strong>8.Around Bust</strong>
+											<p>Measure around the biggest part of bust and keeptape a little high on back.</p>
+											<p class='txt_center'><?=$this->html->image('wmeasure01.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='back' type='text' class='input-mini'> </p>
+										</td>
+									</tr>
+									
+									<tr>
+										<td width='25%'>
+											<strong>9.Front Length (Shoulder to Bust)</strong>
+											<p>Measure from shoulder seam (at neck) to bust point. </p>
+											<p class='txt_center'><?=$this->html->image('wmeasure07.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='neck' type='text' class='input-mini'> </p>
+										</td>
+										<td width='25%'>
+											<strong>10.Point Bust</strong>
+											<p>Measure from one poin bust to another point bust.</p>
+											<p class='txt_center'><?=$this->html->image('wmeasure22.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='waist' type='text' class='input-mini'> </p>
+										</td>
+										<td width='25%'>
+											<strong>11. Hip</strong>
+											<p>Measure around at belly button and add1/2 inces.</p>
+											<p class='txt_center'><?=$this->html->image('wmeasure02.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='hip' type='text' class='input-mini'> </p>
+										</td>
+										<td width='25%'> 
+											<strong>12. Waist</strong>
+											<p>Measure around waistline where normally you wouldwear your pant / skirt.</p>
+											<p class='txt_center'><?=$this->html->image('wmeasure03.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='uaCrotch' type='text' class='input-mini'> </p>
+										</td>
+									</tr>
+									
+									<tr>
+										<td width='25%'>
+											<strong>13. Around High Hip</strong>
+											<p>Measure around hips 5 inches below waist and add 1/2 inces. </p>
+											<p class='txt_center'><?=$this->html->image('wmeasure04.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='lngth' type='text' class='input-mini'> </p>
+										</td>
+										<td width='25%'>
+											<strong>14. Hip</strong>
+											<p>Measure around biggest part of hip and seat and add 1/2 inces. </p>
+											<p class='txt_center'><?=$this->html->image('wmeasure05.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='thigh' type='text' class='input-mini'> </p>
+										</td>
+										<td width='25%'>
+											<strong>15.Sleeve Length</strong>
+											<p>Measure from shoulder seam to wrist.</p>
+											<p class='txt_center'><?=$this->html->image('wmeasure06.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='knee' type='text' class='input-mini'> </p>
+										</td>
+										<td width='25%'> 
+											<strong>16.Arm Length</strong>
+											<p>Measure around the arm.</p>
+											<p class='txt_center'><?=$this->html->image('wmeasure13.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='cuff' type='text' class='input-mini'> </p>
+										</td>
+									</tr>
+									
+									<tr>
+										<td width='25%'>
+											<strong>17. Cuff</strong>
+											<p>Measure around the cuff.</p>
+											<p class='txt_center'><?=$this->html->image('wmeasure23.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='lngth' type='text' class='input-mini'> </p>
+										</td>
+										<td width='25%'>
+											<strong>18.Jacket / Blouse Length </strong>
+											<p>Measure from top of highest shoulder point tothe length of your jacket design style.</p>
+											<p class='txt_center'><?=$this->html->image('wmeasure16.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='thigh' type='text' class='input-mini'> </p>
+										</td>
+										<td width='25%'>
+											<strong>19.Skirt Length</strong>
+											<p>Measure from waist to skirt length.</p>
+											<p class='txt_center'><?=$this->html->image('wmeasure15.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='knee' type='text' class='input-mini'> </p>
+										</td>
+										<td width='25%'> 
+											<strong>20. Trouser Length (From Waist)</strong>
+											<p>Measure from top of waist band where you would normally wear your pants to the bottom of your shoe heel.</p>
+											<p class='txt_center'><?=$this->html->image('wmeasure18.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='cuff' type='text' class='input-mini'> </p>
+										</td>
+									</tr>
+									
+									<tr>
+										<td width='25%'>
+											<strong>21. Trousers Length (Inseam)</strong>
+											<p>Measure from crotch to bottom of cuff.</p>
+											<p class='txt_center'><?=$this->html->image('wmeasure19.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='lngth' type='text' class='input-mini'> </p>
+										</td>
+										<td width='25%'>
+											<strong>22. U.Seat </strong>
+											<p>Measure from the top of the front pant, Down through a seat and around up to top of the back pant.</p>
+											<p class='txt_center'><?=$this->html->image('wmeasure24.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='thigh' type='text' class='input-mini'> </p>
+										</td>
+										<td width='25%'>
+											<strong>23.Trousers Width (Around Cuff)</strong>
+											<p>Measure width around cuff. </p>
+											<p class='txt_center'><?=$this->html->image('wmeasure20.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='knee' type='text' class='input-mini'> </p>
+										</td>
+										<td width='25%'> 
+											<strong>24.Knee Width (Around Knee)</strong>
+											<p>Measure width around knee. </p>
+											<p class='txt_center'><?=$this->html->image('wmeasure25.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='cuff' type='text' class='input-mini'> </p>
+										</td>
+									</tr>
+									
+									<tr>
+										<td colspan='4'><h5 class='txt_center'>Evening Dress Measurement</h5></td>
+									</tr>
+									<tr>
+										<td width='25%'>
+											<strong>1. Chest</strong>
+											<p>Measure around the chest where you would normallywearing your evening dress line.</p>
+											<p class='txt_center'><?=$this->html->image('evening01.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='lngth' type='text' class='input-mini'> </p>
+										</td>
+										<td width='25%'>
+											<strong>2. Belowerthe Bust</strong>
+											<p>Measure around belower the base line of bust.</p>
+											<p class='txt_center'><?=$this->html->image('evening02.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='thigh' type='text' class='input-mini'> </p>
+										</td>
+										<td width='25%'>
+											<strong>3.Front to Waist</strong>
+											<p>Measure from top line that where you would normallywearing dress to the Waist line.</p>
+											<p class='txt_center'><?=$this->html->image('evening03.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='knee' type='text' class='input-mini'> </p>
+										</td>
+										<td width='25%'> 
+											<strong>4.FrontLength </strong>
+											<p>Measure from the top of chest line that you arewearing the evening dress to the ground or yourfront shoes.</p>
+											<p class='txt_center'><?=$this->html->image('evening04.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='cuff' type='text' class='input-mini'> </p>
+										</td>
+									</tr>
+									
+									<tr>
+										<td width='25%'>
+											<strong>5. Front Length </strong>
+											<p>Measure from the top of shoulder to the ground front of your shoes.</p>
+											<p class='txt_center'><?=$this->html->image('evening07.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='lngth' type='text' class='input-mini'> </p>
+										</td>
+										<td width='25%'>
+											<strong>6.Back</strong>
+											<p>Measure from top of the line that where you would normally wearing dress to the waist line.</p>
+											<p class='txt_center'><?=$this->html->image('evening05.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='thigh' type='text' class='input-mini'> </p>
+										</td>
+										<td colspan="2">
+											<strong>7. Back Length </strong>
+											<p>Measure from the top line that where you would normally wearing dress to the bottom of your shoes heel </p>
+											<p class='txt_center'><?=$this->html->image('evening06.gif');?></p>
+											<p class='txt_center'>Size: <strong>(in cm)</strong></p>
+											<p class='txt_center'> <input name='knee' type='text' class='input-mini'> </p>
+										</td>
+									</tr>
+									
+								</tbody>
+							</table>
+				<?php		
 					}
 				?>			
 							

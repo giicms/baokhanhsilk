@@ -143,6 +143,7 @@ class CategoriesController extends AppController {
 			}
 	}
 	
+
 	function admin_delete() {
 		$id = $_POST['id'];
 		$ten = $_POST['value'];
@@ -151,10 +152,8 @@ class CategoriesController extends AppController {
 		$this->Category->id=$id;
 		if($this->Category->removeFromTree($id,true)==false)
 		$this->Session->setFlash('Không thể xóa danh mục.');
-		$this->Session->setFlash('Đã xóa danh mục '.$ten);
+		$this->Session->setFlash('<p class="info" id="success"><span class="info_inner">Đã xóa danh mục '.$ten.'</span></p>');
 	}
-		
-		
 		
 		
 		

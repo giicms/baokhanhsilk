@@ -29,7 +29,7 @@
 		if(confirm("Bạn có muốn xóa danh muc: "+ $(this).data('value') +" không?")) {		
 			$.ajax({
 				type:'post',
-				url: '<?=$this->base?>/admin/Collections/delete/',
+				url: '<?=$this->base?>/admin/Categories/delete/',
 				data: {'id' : $(this).data('key'),
 								'value' : $(this).data('value')
 							},
