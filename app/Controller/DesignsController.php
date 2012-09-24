@@ -244,7 +244,7 @@ class DesignsController extends AppController {
 		$imageModel->delete($imageId);
 		
 		if($this->Design->delete($id)){
-				$this->Session->setFlash("<div class='alert alert-success'>The design with id = " . $id . " has been deleted.</div>");
+				$this->Session->setFlash('<p class="info" id="success"><span class="info_inner">The design with id = ' . $id . ' has been deleted.</span></p>');
 				$this->redirect(array('action' => 'index'));
 			}
 	}

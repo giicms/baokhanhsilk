@@ -32,7 +32,7 @@ class FabricsController extends AppController {
 			$imageModel = new Image();
 			$imageModel->delete($imageId);
 			if($this->Fabric->delete($id)){
-				$this->Session->setFlash("<div class='alert alert-success'>The fabric with id = " . $id . " has been deleted.</div>");
+				$this->Session->setFlash('<p class="info" id="success"><span class="info_inner">The fabric with id = ' . $id . ' has been deleted.</span></p>');
 				$this->redirect(array('action' => 'index'));
 			}
 			
