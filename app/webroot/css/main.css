@@ -363,3 +363,7 @@
 .inline{
 	display: inline-block;
 }
+ul.category_list{
+	list-style: none;
+	margin-left: 0;
+}

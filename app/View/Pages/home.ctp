@@ -76,9 +76,9 @@
 			$parent_id = $parentCollection['Collection']['id'];
 			echo	"<div class='span6'>"
 						."<div class='collection'>"
-							."<h2>". $parentName ."</h2>"."<h2> COLLECTION</h2>"
+							."<h2>". strtoupper($parentName) . "<br/>COLLECTION</h2>"
 							."<p>"
-								."<ul>";
+								."<ul class='category_list'>";
 								$child = $collection->getChildCollection($parent_id);
 								for($j = 0; $j < count($child); $j++) {
 									$childCollection = $child[$j];
