@@ -88,7 +88,7 @@
 			        </a>
 			        <div class="nav-collapse">
 			          <ul class="nav">
-			            <li class="active"><a href="<?=$this->webroot?>"><i class="icon-home icon-white"></i>&nbsp;Home</a></li>
+			            <li><a href="<?=$this->webroot?>"><i class="icon-home icon-white"></i>&nbsp;Home</a></li>
 			            <li><a href="<?=$this->webroot?>collections">Collections</a></li>
 			            <li><a href="<?=$this->webroot?>farbics">Fabrics</a></li>
 			            <li><a href="<?=$this->webroot?>order_online">How to Order Online</a></li>
@@ -120,13 +120,22 @@
     <!--<script src="js/jquery-1.7.2.js"></script>-->
 <!--    <script src="js/bootstrap.min.js"></script>-->
     
-		<script>
+	<script>
       $(document).ready(function(){
+      	highlightSelected();
+      	
         $('.carousel').carousel({
           interval: 4000
         });
         $('#login_form').validate();
       });
+      
+		function highlightSelected(){
+            var path = location.pathname;
+            if (path) {
+            	$('ul.nav li a[href="' + path + '"]').parent().addClass('active');
+        	}
+		}
     </script>
   </body>
 </html>
